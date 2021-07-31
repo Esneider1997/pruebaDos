@@ -1,15 +1,15 @@
 <?php
 include('conexion.php');
 
-if(isset($_POST['documento'])){
+if(isset($_POST['nombre'])){
 
-    $nombres=strtoupper($_POST['nombre']);
-    $telefono=strtoupper($_POST['telefono']);
+    $nombre=strtoupper($_POST['nombre']);
+    $celular=strtoupper($_POST['celular']);
     $correo=strtoupper($_POST['correo']);
-    $pais=strtoupper($_POST['pais']);
+    $pais=$_POST['pais'];
 
     $sql = "INSERT INTO persona (nombre, celular, correo, pais) 
-            VALUES ('$nombres', '$telefono', '$correo', '$pais')";
+            VALUES ('$nombre', '$celular', '$correo', '$pais')";
 
     if ($conn->query($sql) === TRUE) {
     echo "<h3>Registro Exitoso</h3>";
@@ -21,5 +21,4 @@ if(isset($_POST['documento'])){
 
     $conn->close();
 }
-
 ?>
