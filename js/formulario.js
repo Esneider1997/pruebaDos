@@ -4,13 +4,13 @@ const inputs = document.querySelectorAll("#formulario input");
 const expresiones = {
   nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
   correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-  telefono: /^\d{7,14}$/, // 7 a 14 numeros.
+  celular: /^\d{7,14}$/, // 7 a 14 numeros.
 };
 
 const campos = {
   nombre: false,
   correo: false,
-  telefono: false,
+  celular: false,
 };
 
 var requestOptions = {
@@ -42,8 +42,8 @@ const validarFormulario = (e) => {
     case "correo":
       validarCampo(expresiones.correo, e.target, "correo");
       break;
-    case "telefono":
-      validarCampo(expresiones.telefono, e.target, "telefono");
+    case "celular":
+      validarCampo(expresiones.celular, e.target, "celular");
       break;
   }
 };
@@ -86,8 +86,6 @@ const validarCampo = (expresion, input, campo) => {
   }
 };
 
-
-
 inputs.forEach((input) => {
   input.addEventListener("keyup", validarFormulario);
   input.addEventListener("blur", validarFormulario);
@@ -96,7 +94,7 @@ inputs.forEach((input) => {
 formulario.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  if (campos.nombre && campos.correo && campos.telefono) {
+  if (campos.nombre && campos.correo && campos.celular) {
     formulario.reset();
 
     document
