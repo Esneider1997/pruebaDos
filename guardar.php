@@ -21,4 +21,5 @@ if(isset($_POST['nombre'])){
 
     $conn->close();
 }
+
 ?>
